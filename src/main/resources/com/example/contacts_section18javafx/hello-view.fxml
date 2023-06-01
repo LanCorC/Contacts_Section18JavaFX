@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TableView?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.contacts_section18javafx.HelloController">
+            fx:controller="com.example.contacts_section18javafx.HelloController" fx:id="mainBorderPane">
 <!--    <padding>-->
 <!--        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>-->
 <!--    </padding>-->

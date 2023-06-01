@@ -15,14 +15,14 @@
 
     <content>
         <GridPane>
-            <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <Label text="Last Name" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <Label text="Phone Number" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            <Label text="Notes" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-            <TextArea GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="firstName" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="secondName" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Phone Number:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="phoneNumber" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextArea fx:id="notes" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
         </GridPane>
     </content>
 

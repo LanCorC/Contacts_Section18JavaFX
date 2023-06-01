@@ -1,5 +1,6 @@
 package com.example.contacts_section18javafx;
 
+import com.example.datamodel.ContactData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,4 +21,24 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+    @Override
+    public void init() {
+        try {
+            ContactData.getInstance().loadContacts();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void stop() {
+        try {
+            ContactData.getInstance().saveContacts();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 }

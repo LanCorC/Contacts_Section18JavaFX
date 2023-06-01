@@ -1,5 +1,7 @@
 package com.example.datamodel;
 
+import java.util.Objects;
+
 public class Contact {
     private String firstName;
     private String lastName;
@@ -7,15 +9,34 @@ public class Contact {
     private String notes;
 
 
-
     public Contact(String firstName, String lastName, String number, String notes) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.number = number;
-        this.notes = notes;
+        this.firstName = firstName.strip();
+        this.lastName = lastName.strip();
+        this.number = number.strip();
+        this.notes = notes.strip();
     }
 
     public Contact() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contact contact = (Contact) o;
+
+        if (!firstName.equals(contact.firstName)) return false;
+        if (!Objects.equals(lastName, contact.lastName)) return false;
+        return Objects.equals(number, contact.number);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName.hashCode();
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (number != null ? number.hashCode() : 0);
+        return result;
     }
 
     public String getFirstName() {
