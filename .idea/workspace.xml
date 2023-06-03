@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2ada839-8855-4c09-ae62-d39c40f6aa68" name="Changes" comment="adding tableview population at initialization, tim buchalka's code as instructed for the challenge">
+    <list default="true" id="c2ada839-8855-4c09-ae62-d39c40f6aa68" name="Changes" comment="adding dialogPane controller, pre-populate(), starting processResults(); work on handleContactDialog() menuItem eventhandle;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/AddEditDeleteDialogueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/AddEditDeleteDialogueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/datamodel/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/datamodel/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/datamodel/ContactData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/datamodel/ContactData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/contacts_section18javafx/addEditDeleteDialogue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/contacts_section18javafx/addEditDeleteDialogue.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/contacts_section18javafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/contacts_section18javafx/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684737383515</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding dialogPane controller, pre-populate(), starting processResults(); work on handleContactDialog() menuItem eventhandle;">
+      <created>1685632479778</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685632479778</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +108,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding tableview population at initialization, tim buchalka's code as instructed for the challenge" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding tableview population at initialization, tim buchalka's code as instructed for the challenge" />
+    <MESSAGE value="adding dialogPane controller, pre-populate(), starting processResults(); work on handleContactDialog() menuItem eventhandle;" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding dialogPane controller, pre-populate(), starting processResults(); work on handleContactDialog() menuItem eventhandle;" />
   </component>
 </project>

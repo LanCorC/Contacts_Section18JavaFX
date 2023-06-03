@@ -29,10 +29,10 @@ public class HelloController {
         TableColumn<Contact, String> col3 = new TableColumn<>("Contact Number");
         TableColumn<Contact, String> col4 = new TableColumn<>("Notes");
 
-        col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        col3.setCellValueFactory(new PropertyValueFactory<>("number"));
-        col4.setCellValueFactory(new PropertyValueFactory<>("notes"));
+        col1.setCellValueFactory(new PropertyValueFactory<Contact, String>("firstName"));
+        col2.setCellValueFactory(new PropertyValueFactory<Contact, String>("lastName"));
+        col3.setCellValueFactory(new PropertyValueFactory<Contact, String>("number"));
+        col4.setCellValueFactory(new PropertyValueFactory<Contact, String>("notes"));
 
 //        col1.setCellFactory(new Callback<TableColumn<Contact, Contact>, TableCell<Contact, Contact>>() {
 //            @Override
@@ -51,7 +51,7 @@ public class HelloController {
 //                return null;
 //            }
 //        });
-        contactTableView.getColumns().addAll(col1, col2, col3, col4);
+        contactTableView.getColumns().setAll(col1, col2, col3, col4);
 
 //        ObservableList<Contact> contacts = FXCollections.observableArrayList();
 //        Contact c1 = new Contact("Lance", "Maxx", "111", "test");
@@ -61,33 +61,43 @@ public class HelloController {
 //        Contact c5 = new Contact("VeryLong Name IV", "Entered-Person", "321", "bluh");
 //        contacts.addAll(c1, c2, c3, c4, c5);
 
-        contactTableView.getItems().addAll(ContactData.getInstance().getContacts());
-
+        contactTableView.setItems(ContactData.getInstance().getContacts());
     }
 
 
     @FXML
     public void handleAddContact() {
-        welcomeText.setText("Menuitem \"Add Contact\" selected");
+        System.out.println("Menuitem \"Add Contact\" selected");
+        handleContactDialog("add");
     }
     @FXML
     public void handleEditContact() {
-        welcomeText.setText("Menuitem \"Edit Contact\" selected");
+        System.out.println("Menuitem \"Edit Contact\" selected");
+        handleContactDialog("edit");
     }
     @FXML
     public void handleDeleteContact() {
-        welcomeText.setText("Menuitem \"Delete Contact\" selected");
+        System.out.println("Menuitem \"Delete Contact\" selected");
+        handleContactDialog("delete");
     }
 
     //add, edit, delete will trigger this?
     private void handleContactDialog(String action) {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
-        dialog.setTitle(action);
         switch(action) {
-            case "add" -> dialog.setHeaderText("Fill in their information below");
-            case "edit" -> dialog.setHeaderText("Adjust their information below");
-            default -> dialog.setHeaderText("You are about to delete the entry summarised below");
+            case "add" -> {
+                dialog.setHeaderText("Fill in their information below");
+                dialog.setTitle("Add a New Contact");
+            }
+            case "edit" -> {
+                dialog.setHeaderText("Adjust their information below");
+                dialog.setTitle("Edit Existing Contact");
+            }
+            default -> {
+                dialog.setHeaderText("You are about to delete the entry summarised below");
+                dialog.setTitle("Confirm deletion of contact...");
+            }
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -95,9 +105,14 @@ public class HelloController {
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
             AddEditDeleteDialogueController controller = fxmlLoader.getController();
-            controller.prepopulate(contactTableView.getSelectionModel().getSelectedItem());
+            if (action.equals("edit")) {
+                controller.prepopulate(contactTableView.getSelectionModel().getSelectedItem());
+            } else if (action.equals("delete")) {
+                controller.prepopulate(contactTableView.getSelectionModel().getSelectedItem());
+                controller.freezeEntry();
+            }
         } catch(IOException e) {
-            System.out.println("Couldn't find  the dialog");
+            System.out.println("Couldn't find the dialog");
             e.printStackTrace();
             return;
         }
@@ -109,7 +124,6 @@ public class HelloController {
         if(result.isPresent() && result.get() == ButtonType.OK) {
             AddEditDeleteDialogueController controller = fxmlLoader.getController();
             controller.processResults(action);
-
         }
     }
 

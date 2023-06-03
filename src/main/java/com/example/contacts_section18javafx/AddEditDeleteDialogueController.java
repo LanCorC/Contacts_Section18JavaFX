@@ -1,6 +1,8 @@
 package com.example.contacts_section18javafx;
 
 import com.example.datamodel.Contact;
+import com.example.datamodel.ContactData;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -14,15 +16,39 @@ public class AddEditDeleteDialogueController {
     private TextField phoneNumber;
     @FXML
     private TextArea notes;
+
+    //field keeps note, if any, what details to pre-populate of
+    // existing contact, or what to replace (edit)
     private Contact referenceContact;
 
     public Contact processResults(String s) {
+        //Temp: input check
         System.out.printf("%s received", s);
         Contact result = new Contact(firstName.getText(),
                 secondName.getText(), phoneNumber.getText(),
                 notes.getText());
-        //TODO add a switch - if add, check if already exists + add. if delete, check if already exists, delete.
-        //TODO track: if EDIT, replace reference class from Singleton list
+
+        ObservableList<Contact> list =
+                ContactData.getInstance().getContacts();
+        switch (s) {
+            case "add" -> {
+                if (!list.contains(result)) {
+                    list.add(result);
+                } else {
+                    return null;
+                }
+            }
+            case "edit" -> {
+                //replacement not already in, then change
+                if (!list.contains(result) && list.contains(referenceContact)) {
+                    list.set(list.indexOf(referenceContact), result);
+                } else {
+                    return null;
+                }
+            }
+            //delete = default
+            default -> list.remove(referenceContact);
+        }
         return result;
     }
 
@@ -36,10 +62,18 @@ public class AddEditDeleteDialogueController {
         return c;
     }
 
-    //if 'add', start empty fields
+    public void freezeEntry() {
+        firstName.setEditable(false);
+        secondName.setEditable(false);
+        phoneNumber.setEditable(false);
+        notes.setEditable(false);
+    }
 
-    //if 'edit', start fields pre-populated
-
-    //if 'delete', -- simpler dialog Y/N + entry summary?
-
+    //added resumeEntry in case this is required to revert state between more than 1 dialog calls per start()
+    public void resumeEntry() {
+        firstName.setEditable(true);
+        secondName.setEditable(true);
+        phoneNumber.setEditable(true);
+        notes.setEditable(true);
+    }
 }
