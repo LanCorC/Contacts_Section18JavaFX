@@ -29,10 +29,10 @@ public class HelloController {
         TableColumn<Contact, String> col3 = new TableColumn<>("Contact Number");
         TableColumn<Contact, String> col4 = new TableColumn<>("Notes");
 
-        col1.setCellValueFactory(new PropertyValueFactory<Contact, String>("firstName"));
-        col2.setCellValueFactory(new PropertyValueFactory<Contact, String>("lastName"));
-        col3.setCellValueFactory(new PropertyValueFactory<Contact, String>("number"));
-        col4.setCellValueFactory(new PropertyValueFactory<Contact, String>("notes"));
+        col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        col3.setCellValueFactory(new PropertyValueFactory<>("number"));
+        col4.setCellValueFactory(new PropertyValueFactory<>("notes"));
 
 //        col1.setCellFactory(new Callback<TableColumn<Contact, Contact>, TableCell<Contact, Contact>>() {
 //            @Override
