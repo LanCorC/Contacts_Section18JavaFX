@@ -32,15 +32,6 @@
     </top>
 
     <center>
-        <TableView fx:id="contactTableView"/>
+        <TableView fx:id="contactTableView" onKeyPressed="#onHandleKeyPressed"/>
     </center>
-
-    <bottom>
-        <VBox>
-            <Label text="hallo" fx:id="welcomeText"/>
-            <Button text="Hello!" onAction="#onHelloButtonClick"/>
-        </VBox>
-
-    </bottom>
-
 </BorderPane>

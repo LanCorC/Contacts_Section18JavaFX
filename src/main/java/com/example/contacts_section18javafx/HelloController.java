@@ -3,21 +3,18 @@ package com.example.contacts_section18javafx;
 import com.example.datamodel.Contact;
 import com.example.datamodel.ContactData;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.util.Optional;
 
 public class HelloController {
-    @FXML
-    private Label welcomeText;
     @FXML
     private TableView<Contact> contactTableView;
     @FXML
@@ -34,32 +31,7 @@ public class HelloController {
         col3.setCellValueFactory(new PropertyValueFactory<>("number"));
         col4.setCellValueFactory(new PropertyValueFactory<>("notes"));
 
-//        col1.setCellFactory(new Callback<TableColumn<Contact, Contact>, TableCell<Contact, Contact>>() {
-//            @Override
-//            public TableCell<Contact, Contact> call(TableColumn<Contact, Contact> contactStringTableColumn) {
-//                TableCell<Contact, Contact> cell = new TableCell<>() {
-//                    @Override
-//                    protected void updateItem(Contact s, boolean b) {
-//                        super.updateItem(s, b);
-//                        if (b) {
-//                            setText(null);
-//                        } else {
-//                            setText(s.getFirstName());
-//                        }
-//                    }
-//                };
-//                return null;
-//            }
-//        });
         contactTableView.getColumns().setAll(col1, col2, col3, col4);
-
-//        ObservableList<Contact> contacts = FXCollections.observableArrayList();
-//        Contact c1 = new Contact("Lance", "Maxx", "111", "test");
-//        Contact c2 = new Contact("Lear", "Minne", "222", "axe");
-//        Contact c3 = new Contact("Tim", "Innes", "333", "ags");
-//        Contact c4 = new Contact("Rupert", "Smalls", "132", "grint");
-//        Contact c5 = new Contact("VeryLong Name IV", "Entered-Person", "321", "bluh");
-//        contacts.addAll(c1, c2, c3, c4, c5);
 
         contactTableView.setItems(ContactData.getInstance().getContacts());
     }
@@ -128,8 +100,6 @@ public class HelloController {
     }
 
     @FXML public void handleExit() {
-        welcomeText.setText("Closing in a sec!");
-
         try {
             Platform.exit();
         } catch (Exception e) {
@@ -137,7 +107,10 @@ public class HelloController {
         }
     }
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void onHandleKeyPressed(KeyEvent keyEvent) {
+        Contact selectedContact = contactTableView.getSelectionModel().getSelectedItem();
+        if (keyEvent.getCode().equals(KeyCode.DELETE)) {
+            handleDeleteContact();
+        }
     }
 }

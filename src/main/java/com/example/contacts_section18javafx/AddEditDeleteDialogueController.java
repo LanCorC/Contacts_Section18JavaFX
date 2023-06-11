@@ -33,21 +33,24 @@ public class AddEditDeleteDialogueController {
         switch (s) {
             case "add" -> {
                 if (!list.contains(result)) {
-                    list.add(result);
+                    ContactData.getInstance().addContact(result);
                 } else {
                     return null;
                 }
             }
             case "edit" -> {
-                //replacement not already in, then change
-                if (!list.contains(result) && list.contains(referenceContact)) {
+                //replacement not already in e.g. to not cause duplicate, then change
+                if (!list.contains(result)) {
                     list.set(list.indexOf(referenceContact), result);
+                    ContactData.getInstance().editContact(referenceContact, result);
+                    System.out.println("Edit attempted");
                 } else {
+                    System.out.println("Edit failed");
                     return null;
                 }
             }
             //delete = default
-            default -> list.remove(referenceContact);
+            default -> ContactData.getInstance().deleteContact(referenceContact);
         }
         return result;
     }

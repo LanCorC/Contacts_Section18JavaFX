@@ -28,6 +28,7 @@ public class Contact {
 
         if (!firstName.equals(contact.firstName)) return false;
         if (!Objects.equals(lastName, contact.lastName)) return false;
+        if (!Objects.equals(notes, contact.notes)) return false;
         return Objects.equals(number, contact.number);
     }
 
@@ -36,6 +37,7 @@ public class Contact {
         int result = firstName.hashCode();
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (number != null ? number.hashCode() : 0);
+        result = 31 * result + (notes != null ? notes.hashCode() : 0);
         return result;
     }
 
@@ -69,5 +71,10 @@ public class Contact {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s %s\nNumber: %s\nNotes: %s\n", firstName, lastName, number, notes);
     }
 }
