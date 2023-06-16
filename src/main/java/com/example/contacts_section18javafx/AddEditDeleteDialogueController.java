@@ -22,8 +22,6 @@ public class AddEditDeleteDialogueController {
     private Contact referenceContact;
 
     public Contact processResults(String s) {
-        //Temp: input check
-        System.out.printf("%s received", s);
         Contact result = new Contact(firstName.getText(),
                 secondName.getText(), phoneNumber.getText(),
                 notes.getText());
@@ -57,6 +55,9 @@ public class AddEditDeleteDialogueController {
 
     public Contact prepopulate(Contact c) {
         referenceContact = c;
+        if (c == null) {
+            return null;
+        }
         firstName.setText(c.getFirstName());
         secondName.setText(c.getLastName());
         phoneNumber.setText(c.getNumber());

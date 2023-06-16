@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2ada839-8855-4c09-ae62-d39c40f6aa68" name="Changes" comment="Section 18.280(JavaFX; JavaFX Challenge Part 2): Going through Tim's implementation, I have removed some unused imports.">
+    <list default="true" id="c2ada839-8855-4c09-ae62-d39c40f6aa68" name="Changes" comment="Section 18.282(JavaFX; JavaFX Challenge Part 4) : Going through Tim's implementation, I have included error handling for null selection in edit/delete scenarios.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/AddEditDeleteDialogueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/AddEditDeleteDialogueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686886140644</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Section 18.281(JavaFX; JavaFX Challenge Part 3) : Going through Tim's implementation, I have edited some comments.">
+      <created>1686887496337</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686887496337</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +124,8 @@
     <MESSAGE value="adding tableview population at initialization, tim buchalka's code as instructed for the challenge" />
     <MESSAGE value="adding dialogPane controller, pre-populate(), starting processResults(); work on handleContactDialog() menuItem eventhandle;" />
     <MESSAGE value="Section 18.280(JavaFX; JavaFX Challenge Part 2): Going through Tim's implementation, I have removed some unused imports." />
-    <option name="LAST_COMMIT_MESSAGE" value="Section 18.280(JavaFX; JavaFX Challenge Part 2): Going through Tim's implementation, I have removed some unused imports." />
+    <MESSAGE value="Section 18.281(JavaFX; JavaFX Challenge Part 3) : Going through Tim's implementation, I have edited some comments." />
+    <MESSAGE value="Section 18.282(JavaFX; JavaFX Challenge Part 4) : Going through Tim's implementation, I have included error handling for null selection in edit/delete scenarios." />
+    <option name="LAST_COMMIT_MESSAGE" value="Section 18.282(JavaFX; JavaFX Challenge Part 4) : Going through Tim's implementation, I have included error handling for null selection in edit/delete scenarios." />
   </component>
 </project>

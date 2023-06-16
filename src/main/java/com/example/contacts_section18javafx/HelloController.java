@@ -63,10 +63,18 @@ public class HelloController {
                 dialog.setTitle("Add a New Contact");
             }
             case "edit" -> {
+                if (contactTableView.getSelectionModel().getSelectedItem() == null) {
+                    nullSelected();
+                    return;
+                }
                 dialog.setHeaderText("Adjust their information below");
                 dialog.setTitle("Edit Existing Contact");
             }
             default -> {
+                if (contactTableView.getSelectionModel().getSelectedItem() == null) {
+                    nullSelected();
+                    return;
+                }
                 dialog.setHeaderText("You are about to delete the entry summarised below");
                 dialog.setTitle("Confirm deletion of contact...");
             }
@@ -99,6 +107,16 @@ public class HelloController {
         }
     }
 
+    private void nullSelected() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("No Contact Selected");
+        alert.setHeaderText(null);
+        alert.setContentText(
+                "Please select an existing contact from the table and try again.");
+        alert.showAndWait();
+        return;
+    }
+
     @FXML public void handleExit() {
         try {
             Platform.exit();
@@ -108,7 +126,6 @@ public class HelloController {
     }
     @FXML
     public void onHandleKeyPressed(KeyEvent keyEvent) {
-        Contact selectedContact = contactTableView.getSelectionModel().getSelectedItem();
         if (keyEvent.getCode().equals(KeyCode.DELETE)) {
             handleDeleteContact();
         }
