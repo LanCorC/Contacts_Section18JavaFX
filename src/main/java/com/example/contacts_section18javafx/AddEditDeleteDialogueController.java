@@ -18,7 +18,7 @@ public class AddEditDeleteDialogueController {
     private TextArea notes;
 
     //field keeps note, if any, what details to pre-populate of
-    // existing contact, or what to replace (edit)
+    //existing contact, or what to replace when 'edit' is called
     private Contact referenceContact;
 
     public Contact processResults(String s) {
