@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c2ada839-8855-4c09-ae62-d39c40f6aa68" name="Changes" comment="adding dialogPane controller, pre-populate(), starting processResults(); work on handleContactDialog() menuItem eventhandle;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/AddEditDeleteDialogueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/AddEditDeleteDialogueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/contacts_section18javafx/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/datamodel/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/datamodel/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/contacts_section18javafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/contacts_section18javafx/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
