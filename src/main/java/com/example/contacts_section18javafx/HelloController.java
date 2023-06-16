@@ -34,6 +34,7 @@ public class HelloController {
         contactTableView.getColumns().setAll(col1, col2, col3, col4);
 
         contactTableView.setItems(ContactData.getInstance().getContacts());
+        contactTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
 
@@ -114,7 +115,6 @@ public class HelloController {
         alert.setContentText(
                 "Please select an existing contact from the table and try again.");
         alert.showAndWait();
-        return;
     }
 
     @FXML public void handleExit() {
